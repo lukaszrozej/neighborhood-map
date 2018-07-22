@@ -13,10 +13,12 @@ export class MapContainer extends Component {
         }}
       >
 
-        {/* <Marker onClick={this.onMarkerClick}
-          name={'Current location'} />
+        <Marker
+          name={'Królikarnia'}
+          position={{ lat: 52.189091, lng: 21.028411}}
+        />
 
-        <InfoWindow onClose={this.onInfoWindowClose}>
+        {/* <InfoWindow onClose={this.onInfoWindowClose}>
           <div>
             <h1>{this.state.selectedPlace.name}</h1>
           </div>
