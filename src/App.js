@@ -5,6 +5,10 @@ import './App.css';
 import * as places from './places.json';
 
 class App extends Component {
+  state = {
+    places: places
+  }
+
   render() {
     return (
       <div className="App">
