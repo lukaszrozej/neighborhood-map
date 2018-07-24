@@ -11,18 +11,33 @@ const MapComponent = compose(
   }),
   withScriptjs,
   withGoogleMap
-)((props) =>
+)(({places, selectedPlace}) =>
   <GoogleMap
     defaultZoom={12}
     defaultCenter={{ lat: 52.192853, lng: 21.017532 }}
   >
-    {props.isMarkerShown &&
+    {places.map(place => (
+      <Marker
+        key={place.name}
+        position={place.position}
+      >
+        {selectedPlace === place.name
+          ?  <InfoWindow>
+              <h2>{place.name}</h2>
+            </InfoWindow>
+          : null
+        }
+      </Marker>
+    ))
+
+    }
+    {/* {props.isMarkerShown &&
       <Marker position={{ lat: 52.192853, lng: 21.017532 }}>
         <InfoWindow>
           <h2>Hello!</h2>
         </InfoWindow>
       </Marker>
-    }
+    } */}
   </GoogleMap>
 );
 

@@ -8,13 +8,17 @@ import * as places from './places.json';
 
 class App extends Component {
   state = {
-    places: places
+    places: places,
+    selectedPlace: 'Park Promenada'
   }
 
   render() {
     return (
       <div className="App">
-        <MapComponent isMarkerShown />
+        <MapComponent
+          places={this.state.places}
+          selectedPlace={this.state.selectedPlace}
+        />
       </div>
     );
   }
