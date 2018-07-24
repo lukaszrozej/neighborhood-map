@@ -11,18 +11,20 @@ const MapComponent = compose(
   }),
   withScriptjs,
   withGoogleMap
-)(({places, selectedPlace}) =>
+)(({places, selectedPlace, openInfoWindow, closeInfoWindow}) =>
   <GoogleMap
-    defaultZoom={12}
+    defaultZoom={14}
     defaultCenter={{ lat: 52.192853, lng: 21.017532 }}
   >
     {places.map(place => (
       <Marker
         key={place.name}
+        title={place.name}
         position={place.position}
+        onClick={openInfoWindow}
       >
         {selectedPlace === place.name
-          ?  <InfoWindow>
+          ? <InfoWindow onCloseClick={closeInfoWindow}>
               <h2>{place.name}</h2>
             </InfoWindow>
           : null
