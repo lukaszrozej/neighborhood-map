@@ -9,6 +9,8 @@ import * as places from './places.json';
 class App extends Component {
   state = {
     places: places,
+    query: '',
+    filteredPlaces: places,
     selectedPlace: ''
   }
 
@@ -28,7 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <MapComponent
-          places={this.state.places}
+          places={this.state.filteredPlaces}
           selectedPlace={this.state.selectedPlace}
           openInfoWindow={this.openInfoWindow}
           closeInfoWindow={this.closeInfoWindow}
