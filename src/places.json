@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Królikarnia",
+    "name": "Królikarnia",
+    "position": {
+      "lat": 52.189091,
+      "lng": 21.028411
+    }
+  },
+  {
+    "title": "Park Morskie Oko",
+    "name": "Park Morskie Oko",
+    "position": {
+      "lat": 52.205108,
+      "lng": 21.026558
+    }
+  },
+  {
+    "title": "Park Arkadia",
+    "name": "Park Arkadia",
+    "position": {
+      "lat": 52.190699,
+      "lng": 21.028534
+    }
+  },
+  {
+    "title": "Park Dreszera",
+    "name": "Park Dreszera",
+    "position": {
+      "lat": 52.197481,
+      "lng": 21.021374
+    }
+  },
+  {
+    "title": "Park Promenada",
+    "name": "Park Promenada",
+    "position": {
+      "lat": 52.203866,
+      "lng": 21.030054
+    }
+  }
+]
