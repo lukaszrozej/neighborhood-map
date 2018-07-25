@@ -21,7 +21,7 @@ const MapComponent = compose(
         key={place.name}
         title={place.name}
         position={place.position}
-        onClick={openInfoWindow}
+        onClick={openInfoWindow(place)}
       >
         {selectedPlace === place.name
           ? <InfoWindow onCloseClick={closeInfoWindow}>

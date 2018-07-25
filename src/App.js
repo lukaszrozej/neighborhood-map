@@ -35,9 +35,9 @@ class App extends Component {
     // });
   }
 
-  openInfoWindow = event => {
+  openInfoWindow = place => () => {
     this.setState({
-      selectedPlace: event.Ha.target.title
+      selectedPlace: place.name
     })
   }
 
