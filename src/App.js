@@ -14,28 +14,24 @@ class App extends Component {
     selectedPlace: ''
   }
 
-  componentDidMount() {
+  fetchImage(placeID) {
     const FOURSQUARE_URL = 'https://api.foursquare.com/v2/venues/';
     const CLIENT_ID = 'M3ZKOWBL0OC0FPH0ESYUOFVHZGIJT0AQLPROVZNSWTPA1P4V';
     const CLIENT_SECRET = 'GJUD4FVH0SAS0SN1ICISKE4TNKYHK4OIRT043NLOUJ1035CS';
     const VERSION = '20180725';
 
-    // this.state.places
-    // .forEach(place => {
-    //   console.log(place)
-    //   fetch(`${FOURSQUARE_URL}`
-    //         + `${place.id}`
-    //         + `?client_id=${CLIENT_ID}`
-    //         + `&client_secret=${CLIENT_SECRET}`
-    //         + `&v=${VERSION}`
-    //       )
-    //     .then(response => response.json())
-    //     .then(data => console.log(data))
-      
-    // });
+    return fetch(`${FOURSQUARE_URL}`
+            + `${placeID}`
+            + `?client_id=${CLIENT_ID}`
+            + `&client_secret=${CLIENT_SECRET}`
+            + `&v=${VERSION}`
+          )
+        .then(response => response.json())
+        .then(data => `${data.response.venue.bestPhoto.prefix}200x200${data.response.venue.bestPhoto.suffix}`);
   }
 
   openInfoWindow = place => () => {
+    this.fetchImage(place.id)
     this.setState({
       selectedPlace: place.name
     })
