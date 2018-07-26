@@ -43,6 +43,18 @@ class App extends Component {
         this.setState({
           places: newPlaces,
         })
+      })
+      .catch(() => {
+        const newPlaces = places.map(oldPlace =>
+          oldPlace.id === place.id
+            ? Object.assign({}, place, { photo: 'error' })
+            : oldPlace
+        )
+
+        this.setState({
+          places: newPlaces,
+        })
+
       });
   }
 

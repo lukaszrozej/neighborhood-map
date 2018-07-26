@@ -27,8 +27,10 @@ const MapComponent = compose(
           ? <InfoWindow onCloseClick={closeInfoWindow}>
               <div>
                 <h2>{place.name}</h2>
-                <img src={place.photo} />
-                {/* <p>{place.photo}</p> */}
+                {place.photo === 'error'
+                  ? <p>Photo coud not be loaded</p>
+                  : <img src={place.photo} />
+                }
               </div>
             </InfoWindow>
           : null
