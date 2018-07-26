@@ -20,42 +20,35 @@ class App extends Component {
     const CLIENT_SECRET = 'GJUD4FVH0SAS0SN1ICISKE4TNKYHK4OIRT043NLOUJ1035CS';
     const VERSION = '20180725';
 
+    console.log('fetch', place.name)
+
     fetch(`${FOURSQUARE_URL}`
             + `${place.id}`
             + `?client_id=${CLIENT_ID}`
             + `&client_secret=${CLIENT_SECRET}`
             + `&v=${VERSION}`
           )
-      .then(response => response.json())
-      .then(data => {
-        const prefix = data.response.venue.bestPhoto.prefix;
-        const suffix = data.response.venue.bestPhoto.suffix;
-        const photoURL = `${prefix}200x200${suffix}`;
+      .then(response => {console.log('json'); return response.json()})
+      .then(this.extractPhotoURL)
+      .catch(() => 'error')
+      .then(this.addPhotoInfoToPlace(place));
+  }
 
-        console.log(photoURL);
+  extractPhotoURL = data =>
+    `${data.response.venue.bestPhoto.prefix}` +
+    `200x200` +
+    `${data.response.venue.bestPhoto.suffix}`;
+  
+  addPhotoInfoToPlace = place => info => {
+    const newPlaces = this.state.places.map(oldPlace =>
+      oldPlace.id === place.id
+        ? Object.assign({}, place, { photo: info })
+        : oldPlace
+    )
 
-        const newPlaces = this.state.places.map(oldPlace => 
-          oldPlace.id === place.id
-            ? Object.assign({}, place, { photo: photoURL })
-            : oldPlace
-        )
-        
-        this.setState({
-          places: newPlaces,
-        })
-      })
-      .catch(() => {
-        const newPlaces = this.state.places.map(oldPlace =>
-          oldPlace.id === place.id
-            ? Object.assign({}, place, { photo: 'error' })
-            : oldPlace
-        )
-
-        this.setState({
-          places: newPlaces,
-        })
-
-      });
+    this.setState({
+      places: newPlaces,
+    })
   }
 
   selectPlace = place => () => {
@@ -74,7 +67,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.places)
     return (
       <div className="App">
         <MapComponent
