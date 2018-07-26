@@ -25,7 +25,11 @@ const MapComponent = compose(
       >
         {selectedPlace === place.name
           ? <InfoWindow onCloseClick={closeInfoWindow}>
-              <h2>{place.name}</h2>
+              <div>
+                <h2>{place.name}</h2>
+                <img src={place.photo} />
+                {/* <p>{place.photo}</p> */}
+              </div>
             </InfoWindow>
           : null
         }
