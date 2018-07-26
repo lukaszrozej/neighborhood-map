@@ -58,7 +58,7 @@ class App extends Component {
       });
   }
 
-  openInfoWindow = place => () => {
+  selectPlace = place => () => {
     if (!place.photo) {
       this.fetchImage(place)
     }
@@ -67,7 +67,7 @@ class App extends Component {
     })
   }
 
-  closeInfoWindow = () => {
+  cancelSelection = () => {
     this.setState({
       selectedPlace: ''
     })
@@ -80,8 +80,8 @@ class App extends Component {
         <MapComponent
           places={this.state.places}
           selectedPlace={this.state.selectedPlace}
-          openInfoWindow={this.openInfoWindow}
-          closeInfoWindow={this.closeInfoWindow}
+          selectPlace={this.selectPlace}
+          cancelSelection={this.cancelSelection}
         />
       </div>
     );
