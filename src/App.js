@@ -34,7 +34,7 @@ class App extends Component {
 
         console.log(photoURL);
 
-        const newPlaces = places.map(oldPlace => 
+        const newPlaces = this.state.places.map(oldPlace => 
           oldPlace.id === place.id
             ? Object.assign({}, place, { photo: photoURL })
             : oldPlace
@@ -45,7 +45,7 @@ class App extends Component {
         })
       })
       .catch(() => {
-        const newPlaces = places.map(oldPlace =>
+        const newPlaces = this.state.places.map(oldPlace =>
           oldPlace.id === place.id
             ? Object.assign({}, place, { photo: 'error' })
             : oldPlace
