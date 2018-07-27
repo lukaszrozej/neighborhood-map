@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import MapComponent from './MapComponent.js';
+import TopAppBar from './TopAppBar.js';
 
 import * as places from './places.json';
 
@@ -69,6 +70,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <TopAppBar />
         <MapComponent
           places={this.state.places}
           selectedPlace={this.state.selectedPlace}
