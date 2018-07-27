@@ -4,6 +4,7 @@ import './App.css';
 
 import MapComponent from './MapComponent.js';
 import TopAppBar from './TopAppBar.js';
+import LeftDrawer from './LeftDrawer.js';
 
 import * as places from './places.json';
 
@@ -71,6 +72,7 @@ class App extends Component {
     return (
       <div className="App">
         <TopAppBar />
+        <LeftDrawer />
         <MapComponent
           places={this.state.places}
           selectedPlace={this.state.selectedPlace}
