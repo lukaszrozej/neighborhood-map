@@ -75,7 +75,8 @@ class App extends Component {
     const newFilteredPlaces = this.state.places.filter(place => place.name.match(regex));
     this.setState({
       query: newQuery,
-      filteredPlaces: newFilteredPlaces
+      filteredPlaces: newFilteredPlaces,
+      selectedPlace: ''
     });
   }
 
