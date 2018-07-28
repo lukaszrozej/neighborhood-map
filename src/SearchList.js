@@ -5,23 +5,21 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const SearchList = props => (
+const SearchList = ({query, places, inputChange}) => (
   <div>
     <TextField
       label="With placeholder"
       placeholder="Placeholder"
+      value={query}
+      onChange={inputChange}
       margin="normal"
     />
     <List>
-      <ListItem>
-        <ListItemText primary="one" />
-      </ListItem>
-      <ListItem>
-        <ListItemText primary="one" />
-      </ListItem>
-      <ListItem>
-        <ListItemText primary="one" />
-      </ListItem>
+      {places.map(place => (
+        <ListItem key={place.id}>
+          <ListItemText primary={place.name} />
+        </ListItem>
+      ))}
     </List>
   </div>
 )

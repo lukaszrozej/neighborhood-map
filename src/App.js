@@ -69,12 +69,26 @@ class App extends Component {
     })
   }
 
+  inputChange = event => {
+    const newQuery = event.target.value.trim();
+    const regex = new RegExp(newQuery, 'i');
+    const newFilteredPlaces = this.state.places.filter(place => place.name.match(regex));
+    this.setState({
+      query: newQuery,
+      filteredPlaces: newFilteredPlaces
+    });
+  }
+
   render() {
     return (
       <div className="App">
         {/* <TopAppBar />
         <LeftDrawer /> */}
-        <SearchList />
+        <SearchList
+          query={this.state.query}
+          places={this.state.filteredPlaces}
+          inputChange={this.inputChange}
+        />
         <MapComponent
           places={this.state.places}
           selectedPlace={this.state.selectedPlace}
