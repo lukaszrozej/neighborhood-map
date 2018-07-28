@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const SearchList = ({query, places, inputChange}) => (
+const SearchList = ({query, places, inputChange, selectPlace}) => (
   <div>
     <TextField
       label="With placeholder"
@@ -16,7 +16,7 @@ const SearchList = ({query, places, inputChange}) => (
     />
     <List>
       {places.map(place => (
-        <ListItem key={place.id}>
+        <ListItem button onClick={selectPlace(place)} key={place.id}>
           <ListItemText primary={place.name} />
         </ListItem>
       ))}

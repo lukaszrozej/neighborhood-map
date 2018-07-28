@@ -93,6 +93,7 @@ class App extends Component {
           query={this.state.query}
           places={this.state.filteredPlaces}
           inputChange={this.inputChange}
+          selectPlace={this.selectPlace}
         />
         <MapComponent
           places={this.state.filteredPlaces}
