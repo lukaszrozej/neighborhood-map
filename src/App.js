@@ -49,8 +49,12 @@ class App extends Component {
         : oldPlace
     )
 
+    const regex = new RegExp(this.state.query, 'i');
+    const newFilteredPlaces = newPlaces.filter(place => place.name.match(regex));
+
     this.setState({
       places: newPlaces,
+      filteredPlaces: newFilteredPlaces
     })
   }
 
@@ -91,7 +95,7 @@ class App extends Component {
           inputChange={this.inputChange}
         />
         <MapComponent
-          places={this.state.places}
+          places={this.state.filteredPlaces}
           selectedPlace={this.state.selectedPlace}
           selectPlace={this.selectPlace}
           cancelSelection={this.cancelSelection}
