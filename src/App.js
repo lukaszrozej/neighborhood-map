@@ -14,7 +14,8 @@ class App extends Component {
     places: places,
     query: '',
     filteredPlaces: places,
-    selectedPlace: ''
+    selectedPlace: '',
+    drawerOpen: false,
   }
 
   fetchImage(place) {
@@ -84,15 +85,25 @@ class App extends Component {
     });
   }
 
+  toggleDrawer = () => {
+    this.setState({
+      drawerOpen: !this.state.drawerOpen
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <TopAppBar />
+        <TopAppBar
+          toggleDrawer={this.toggleDrawer}
+        />
         <LeftDrawer
           query={this.state.query}
           places={this.state.filteredPlaces}
           inputChange={this.inputChange}
           selectPlace={this.selectPlace}
+          toggleDrawer={this.toggleDrawer}
+          drawerOpen={this.state.drawerOpen}
         />
         <MapComponent
           places={this.state.filteredPlaces}

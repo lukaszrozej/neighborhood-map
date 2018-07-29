@@ -12,13 +12,15 @@ const styles = {
   },
 };
 
-function SimpleAppBar(props) {
-  const { classes } = props;
+function SimpleAppBar({toggleDrawer, classes}) {
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
         <Toolbar>
-          <IconButton aria-label="Menu">
+          <IconButton
+            onClick={toggleDrawer}
+            aria-label="Menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit">
