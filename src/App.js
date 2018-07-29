@@ -87,7 +87,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <TopAppBar /> */}
+        <TopAppBar />
         <LeftDrawer
           query={this.state.query}
           places={this.state.filteredPlaces}

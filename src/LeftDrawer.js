@@ -1,10 +1,19 @@
 import React, { Fragment } from 'react';
 
+import { withStyles } from '@material-ui/core/styles';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
+
 import SearchList from './SearchList';
 
-const LeftDrawer = ({ query, places, inputChange, selectPlace }) => (
+const styles = {
+  paper: {
+    // position: 'static',
+    // height: 600,
+  }
+}
+
+const LeftDrawer = ({ query, places, inputChange, selectPlace, classes }) => (
   <Fragment>
     <Hidden mdUp>
       <Drawer variant="temporary">
@@ -17,7 +26,7 @@ const LeftDrawer = ({ query, places, inputChange, selectPlace }) => (
       </Drawer>
     </Hidden>
     <Hidden smDown>
-      <Drawer variant="permanent">
+      <Drawer variant="permanent" classes={{paper: classes.paper}}>
         <SearchList
           query={query}
           places={places}
@@ -29,4 +38,4 @@ const LeftDrawer = ({ query, places, inputChange, selectPlace }) => (
   </Fragment>
 )
 
-export default LeftDrawer;
+export default withStyles(styles)(LeftDrawer);
