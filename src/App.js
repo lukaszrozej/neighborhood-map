@@ -87,9 +87,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <TopAppBar />
-        <LeftDrawer /> */}
-        <SearchList
+        {/* <TopAppBar /> */}
+        <LeftDrawer
           query={this.state.query}
           places={this.state.filteredPlaces}
           inputChange={this.inputChange}
