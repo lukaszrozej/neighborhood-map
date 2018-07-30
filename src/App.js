@@ -4,9 +4,7 @@ import './App.css';
 
 import FloatingButton from './FloatingButton.js';
 import MapComponent from './MapComponent.js';
-import TopAppBar from './TopAppBar.js';
 import LeftDrawer from './LeftDrawer.js';
-import SearchList from './SearchList.js';
 
 import * as places from './places.json';
 
@@ -25,15 +23,13 @@ class App extends Component {
     const CLIENT_SECRET = 'GJUD4FVH0SAS0SN1ICISKE4TNKYHK4OIRT043NLOUJ1035CS';
     const VERSION = '20180725';
 
-    console.log('fetch', place.name)
-
     fetch(`${FOURSQUARE_URL}`
             + `${place.id}`
             + `?client_id=${CLIENT_ID}`
             + `&client_secret=${CLIENT_SECRET}`
             + `&v=${VERSION}`
           )
-      .then(response => {console.log('json'); return response.json()})
+      .then(response => response.json())
       .then(this.extractPhotoURL)
       .catch(() => 'error')
       .then(this.addPhotoInfoToPlace(place));
@@ -95,9 +91,6 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{display: 'flex'}}>
-        {/* <TopAppBar
-          toggleDrawer={this.toggleDrawer}
-        /> */}
         {this.state.drawerOpen
           ? <LeftDrawer
               query={this.state.query}
