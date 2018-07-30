@@ -10,7 +10,7 @@ import SearchList from './SearchList';
 const styles = {
   paper: {
     position: 'static',
-    width: "20rem"
+    width: "12rem"
   }
 }
 
