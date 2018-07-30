@@ -98,17 +98,19 @@ class App extends Component {
         {/* <TopAppBar
           toggleDrawer={this.toggleDrawer}
         /> */}
-        <FloatingButton
-          toggleDrawer={this.toggleDrawer}
-        />
-        <LeftDrawer
-          query={this.state.query}
-          places={this.state.filteredPlaces}
-          inputChange={this.inputChange}
-          selectPlace={this.selectPlace}
-          toggleDrawer={this.toggleDrawer}
-          drawerOpen={this.state.drawerOpen}
-        />
+        {this.state.drawerOpen
+          ? <LeftDrawer
+              query={this.state.query}
+              places={this.state.filteredPlaces}
+              inputChange={this.inputChange}
+              selectPlace={this.selectPlace}
+              toggleDrawer={this.toggleDrawer}
+              drawerOpen={this.state.drawerOpen}
+            />
+          : <FloatingButton
+              toggleDrawer={this.toggleDrawer}
+            />
+        }
         <MapComponent
           places={this.state.filteredPlaces}
           selectedPlace={this.state.selectedPlace}

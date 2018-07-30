@@ -20,7 +20,6 @@ const FloatingButton = ({ classes, toggleDrawer}) => (
     variant="fab"
     color="primary"
     aria-label="Menu"
-    // className={classes.button}
     onClick={toggleDrawer}
     classes={{fab: classes.fab}}
   >
