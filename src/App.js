@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import FloatingButton from './FloatingButton.js';
 import MapComponent from './MapComponent.js';
 import TopAppBar from './TopAppBar.js';
 import LeftDrawer from './LeftDrawer.js';
@@ -94,7 +95,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TopAppBar
+        {/* <TopAppBar
+          toggleDrawer={this.toggleDrawer}
+        /> */}
+        <FloatingButton
           toggleDrawer={this.toggleDrawer}
         />
         <LeftDrawer
