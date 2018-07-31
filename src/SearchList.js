@@ -5,14 +5,26 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const SearchList = ({query, places, inputChange, selectPlace}) => (
+import { withStyles } from '@material-ui/core/styles';
+
+
+const styles = theme => ({
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: '10rem',
+  },
+});
+
+const SearchList = ({query, places, inputChange, selectPlace, classes}) => (
   <div>
     <TextField
-      label="With placeholder"
-      placeholder="Placeholder"
+      id="filter"
+      label="Filter"
+      className={classes.textField}
+      margin="normal"
       value={query}
       onChange={inputChange}
-      margin="normal"
     />
     <List>
       {places.map(place => (
@@ -24,4 +36,4 @@ const SearchList = ({query, places, inputChange, selectPlace}) => (
   </div>
 )
 
-export default SearchList;
+export default withStyles(styles)(SearchList);
