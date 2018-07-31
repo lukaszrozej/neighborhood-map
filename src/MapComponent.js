@@ -13,7 +13,7 @@ const MapComponent = compose(
   withGoogleMap
 )(({places, selectedPlace, selectPlace, cancelSelection}) =>
   <GoogleMap
-    defaultZoom={14}
+    defaultZoom={13}
     defaultCenter={{ lat: 52.192853, lng: 21.017532 }}
   >
     {places.map(place => (
@@ -23,7 +23,8 @@ const MapComponent = compose(
         position={place.position}
         onClick={selectPlace(place)}
       >
-        {selectedPlace === place.name
+        {/* {selectedPlace === place.name */}
+        {selectedPlace.id === place.id
           ? <InfoWindow onCloseClick={cancelSelection}>
               <div>
                 <h2>{place.name}</h2>

@@ -8,6 +8,8 @@ import LeftDrawer from './LeftDrawer.js';
 
 import * as places from './places.json';
 
+const NO_PLACE = { id: undefined };
+
 class App extends Component {
   state = {
     places: places,
@@ -61,13 +63,15 @@ class App extends Component {
       this.fetchImage(place)
     }
     this.setState({
-      selectedPlace: place.name
+      // selectedPlace: place.name
+      selectedPlace: place
     })
   }
 
   cancelSelection = () => {
     this.setState({
-      selectedPlace: ''
+      // selectedPlace: ''
+      selectedPlace: NO_PLACE
     })
   }
 
@@ -78,7 +82,8 @@ class App extends Component {
     this.setState({
       query: newQuery,
       filteredPlaces: newFilteredPlaces,
-      selectedPlace: ''
+      // selectedPlace: ''
+      selectedPlace: NO_PLACE
     });
   }
 
