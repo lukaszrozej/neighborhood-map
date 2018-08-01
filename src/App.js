@@ -17,6 +17,7 @@ class App extends Component {
     filteredPlaces: places,
     selectedPlace: '',
     drawerOpen: false,
+    animation: 0,
   }
 
   fetchImage(place) {
@@ -63,13 +64,21 @@ class App extends Component {
       this.fetchImage(place)
     }
     this.setState({
-      selectedPlace: place
+      selectedPlace: place,
+      animation: 1,
     })
+    setTimeout(this.cancellAnimation, 500);
   }
 
   cancelSelection = () => {
     this.setState({
       selectedPlace: NO_PLACE
+    })
+  }
+
+  cancellAnimation = () => {
+    this.setState({
+      animation: 0
     })
   }
 
@@ -111,6 +120,7 @@ class App extends Component {
           selectedPlace={this.state.selectedPlace}
           selectPlace={this.selectPlace}
           cancelSelection={this.cancelSelection}
+          animation={this.state.animation}
         />
       </div>
     );
