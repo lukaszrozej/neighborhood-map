@@ -30,10 +30,13 @@ const MapComponent = compose(
                 <h2>{place.name}</h2>
                 {place.photo === 'error'
                   ? <p>Photo coud not be loaded</p>
-                  : <img
-                      src={place.photo}
-                      alt={`Photo of ${place.name}`}
-                    />
+                  : <div>
+                      <img
+                        src={place.photo}
+                        alt={`Photo of ${place.name}`}
+                      />
+                      <p>Powered by Foursquare</p>
+                    </div>
                 }
               </div>
             </InfoWindow>
