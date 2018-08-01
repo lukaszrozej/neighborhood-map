@@ -23,7 +23,6 @@ const MapComponent = compose(
         position={place.position}
         onClick={selectPlace(place)}
       >
-        {/* {selectedPlace === place.name */}
         {selectedPlace.id === place.id
           ? <InfoWindow onCloseClick={cancelSelection}>
               <div>
@@ -40,13 +39,6 @@ const MapComponent = compose(
     ))
 
     }
-    {/* {props.isMarkerShown &&
-      <Marker position={{ lat: 52.192853, lng: 21.017532 }}>
-        <InfoWindow>
-          <h2>Hello!</h2>
-        </InfoWindow>
-      </Marker>
-    } */}
   </GoogleMap>
 );
 

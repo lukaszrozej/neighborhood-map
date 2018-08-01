@@ -63,14 +63,12 @@ class App extends Component {
       this.fetchImage(place)
     }
     this.setState({
-      // selectedPlace: place.name
       selectedPlace: place
     })
   }
 
   cancelSelection = () => {
     this.setState({
-      // selectedPlace: ''
       selectedPlace: NO_PLACE
     })
   }
@@ -82,7 +80,6 @@ class App extends Component {
     this.setState({
       query: newQuery,
       filteredPlaces: newFilteredPlaces,
-      // selectedPlace: ''
       selectedPlace: NO_PLACE
     });
   }
