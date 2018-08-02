@@ -33,6 +33,8 @@ Use can deploy it using [Node](https://nodejs.org/) and [serve](https://github.c
 npm install -g serve
 serve -s build
 ```
-The last command shown above will serve your static site on the port **5000**. 
+The last command shown above will serve your static site on the port **5000**.
+
+In production mode the app uses a service worker.
 
 For details and other deployment options see [Create React App user Guide](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md)
