@@ -33,7 +33,7 @@ const MapComponent = compose(
                   : <div>
                       <img
                         src={place.photo}
-                        alt={`Photo of ${place.name}`}
+                        alt={`${place.name}`}
                       />
                       <p>Powered by Foursquare</p>
                     </div>
