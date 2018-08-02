@@ -14,7 +14,7 @@ const MapComponent = compose(
 )(({places, selectedPlace, selectPlace, cancelSelection, animation}) =>
   <GoogleMap
     defaultZoom={13}
-    defaultCenter={{ lat: 52.192853, lng: 21.017532 }}
+    defaultCenter={{ lat: 52.205108, lng: 21.017532 }}
   >
     {places.map(place => (
       <Marker
