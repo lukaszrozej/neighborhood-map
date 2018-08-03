@@ -16,7 +16,7 @@ const styles = {
 const LeftDrawer = ({ query, places, inputChange, selectPlace, classes, toggleDrawer, drawerOpen }) => (
   <Drawer
     open={drawerOpen}
-    onOpen={toggleDrawer}
+    // onOpen={toggleDrawer}
     onClose={toggleDrawer}
     variant="persistent"
     classes={{paper: classes.paper}}
