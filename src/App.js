@@ -109,6 +109,7 @@ class App extends Component {
               selectPlace={this.selectPlace}
               toggleDrawer={this.toggleDrawer}
               drawerOpen={this.state.drawerOpen}
+              role="complementary"
             />
           : <FloatingButton
               toggleDrawer={this.toggleDrawer}
@@ -120,6 +121,7 @@ class App extends Component {
           selectPlace={this.selectPlace}
           cancelSelection={this.cancelSelection}
           animation={this.state.animation}
+          role="main"
         />
       </div>
     );
