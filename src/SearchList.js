@@ -22,6 +22,7 @@ const SearchList = ({query, places, inputChange, selectPlace, classes}) => (
       id="filter"
       label="Filter"
       aria-labelledby="Filter"
+      role="Search"
       className={classes.textField}
       margin="normal"
       value={query}
