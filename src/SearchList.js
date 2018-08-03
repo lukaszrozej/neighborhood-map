@@ -30,7 +30,12 @@ const SearchList = ({query, places, inputChange, selectPlace, classes}) => (
     />
     <List>
       {places.map(place => (
-        <ListItem button onClick={selectPlace(place)} key={place.id}>
+        <ListItem
+          button
+          onClick={selectPlace(place)}
+          key={place.id}
+          role="button"
+        >
           <ListItemText primary={place.name} />
         </ListItem>
       ))}
