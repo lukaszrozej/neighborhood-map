@@ -6,8 +6,15 @@ const MapComponent = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA9VEL4Dc3zPp_y25SUmFDZOtC73O3dzSQ",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `100vh`, flexGrow: 1 }} />,
-    mapElement: <div style={{ height: `100%` }} />,
+    containerElement: <div
+                        style={{ height: `100vh`, flexGrow: 1 }}
+                        aria-hidden="true"
+                      />,
+    mapElement: <div
+                  style={{ height: `100%` }}
+                  role="application"
+                  aria-label="Map with restaurants marked"
+                />,
   }),
   withScriptjs,
   withGoogleMap
