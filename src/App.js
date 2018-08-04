@@ -19,6 +19,12 @@ class App extends Component {
     animation: 0,
   }
 
+  /**
+   * Fetches image with foursquare id being place.id
+   * Calls addPhotoInfoToPlace with:
+   * - image url in case of success
+   * - string 'error' in case of failure
+   */
   fetchImage(place) {
     const FOURSQUARE_URL = 'https://api.foursquare.com/v2/venues/';
     const CLIENT_ID = 'M3ZKOWBL0OC0FPH0ESYUOFVHZGIJT0AQLPROVZNSWTPA1P4V';
@@ -37,11 +43,20 @@ class App extends Component {
       .then(this.addPhotoInfoToPlace(place));
   }
 
+  /**
+   * Extracts best photo url from data received from Foursquare
+   */
   extractPhotoURL = data =>
     `${data.response.venue.bestPhoto.prefix}` +
     `200x200` +
     `${data.response.venue.bestPhoto.suffix}`;
   
+  /**
+   * Returns a function that adds photo info
+   * to place given by the parameter
+   * The function changes arrays
+   * places and filteredPlaces in the state
+   */
   addPhotoInfoToPlace = place => info => {
     const newPlaces = this.state.places.map(oldPlace =>
       oldPlace.id === place.id
@@ -58,6 +73,12 @@ class App extends Component {
     })
   }
 
+  /**
+   * It's run when place is selected on the map or in the search list
+   * It calls fetchImage if the place doesn't have a photo
+   * It sets selectedPlace and animation in the state
+   * It sets timeout for animation cancellation
+   */
   selectPlace = place => () => {
     if (!place.photo) {
       this.fetchImage(place)
@@ -69,18 +90,29 @@ class App extends Component {
     setTimeout(this.cancellAnimation, 500);
   }
 
+  /**
+   * Cancells place selection
+   */
   cancelSelection = () => {
     this.setState({
       selectedPlace: NO_PLACE
     })
   }
 
+  /**
+   * Cancells animation
+   */
   cancellAnimation = () => {
     this.setState({
       animation: 0
     })
   }
 
+  /**
+   * It handle change event for the input field
+   * It changes query and filteredPlaces array
+   * It cancells selectedPlace
+   */
   inputChange = event => {
     const newQuery = event.target.value.trim();
     const regex = new RegExp(newQuery, 'i');
@@ -92,6 +124,9 @@ class App extends Component {
     });
   }
 
+  /**
+   * Toggle the state (open or closed) of the drawer containg list of places
+   */
   toggleDrawer = () => {
     this.setState({
       drawerOpen: !this.state.drawerOpen
